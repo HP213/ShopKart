@@ -58,17 +58,6 @@ app.use('/', routes);
 //   console.log("running at 127.0.0.1:3000");
 // });
 
-/ catch 404 and forwarding to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-app.use(require('csurf')())
-/// error handlers
-
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
@@ -89,5 +78,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-module.exports = app;
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
