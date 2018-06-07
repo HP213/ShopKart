@@ -1,0 +1,49 @@
+<% include partials/header %>
+<div class="row">
+  <div class="col-sm-6 col-md-offset-4 col-sm-offset-3">
+      <h1>Checkout</h1>
+      <h4>Your Total : Rs <%=session.cart.totalPrice%></h4>
+      <h2>Right now We only support COD</h2>
+      <form action="/user/checkout" id="checkout-form" method="post">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input required type="text" name="name" id="name" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input required type="text" id="address" class="form-control" name="address" required>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="address">postalCode</label>
+              <input required type="text" id="postalCode" class="form-control" name="postalCode" required>
+            </div>
+          </div>
+          </div>
+      </div>
+      <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+
+        <button type="submit" class="btn btn-success">Buy Now</button>
+      </form>
+
+  </div>
+
+</div>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="./javascript/checkout.js"></script>
+
+
+
+<% include partials/footer %>

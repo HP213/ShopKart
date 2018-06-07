@@ -1,0 +1,30 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.0.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.0.1",
+    "csurf": "^1.9.0",
+    "debug": "^0.7.4",
+    "ejs": "^0.8.8",
+    "express": "^4.0.0",
+    "express-session": "^1.15.6",
+    "flash-messages": "0.0.4",
+    "mongoose": "^5.0.4",
+    "morgan": "^1.0.1",
+    "package.json": "^2.0.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.4.5",
+    "static-favicon": "^1.0.2",
+    "stripe": "^5.4.0"
+  }
+}

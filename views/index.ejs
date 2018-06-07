@@ -1,0 +1,29 @@
+<% include partials/header%>
+
+<div class="container">
+  <div class="row">
+    <%if(success){%>
+      <div class="alert alert-success"><%=success%></div>
+      <%}%>
+      <%if(error){%>
+        <div class="alert alert-danger"><%=error%></div>
+        <%}%>
+    <%for(product of products){%>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="<%=product.image%>" alt="">
+              <div class="caption">
+                <h4><%=product.title%></h4>
+                <p><%=product.content.substr(0,100)%></p>
+                <div><span><strong style="text-decoration: line-through">Rs<%=product.originalPrice%></strong></span></div>
+                <div><span><strong>Rs<%=product.discountedPrice%></strong></span></div>
+                <a href="/add-to-cart/<%=product._id%>" class="btn btn-success btn-xs" role="button">Add To Cart</a>
+                <a href="/more-info/<%=product._id%>" class="btn btn-info btn-xs pull-right" role="button">More Info</a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+  </div>
+</div>
+
+<% include partials/footer %>

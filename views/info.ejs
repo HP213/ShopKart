@@ -1,0 +1,13 @@
+<% include ./partials/header %>
+<div class="container">
+  <div class=" thumbnail pull-left">
+    <img id="info" src="<%=product.image%>" alt="<%=product.title%>">
+  </div>
+  <h1 class="text-center"><%=product.title%></h1>
+  <hr>
+  <br>
+  <div class="text-center">
+    <%=product.content%>
+  </div>
+</div>
+<% include ./partials/footer %>
