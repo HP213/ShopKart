@@ -3,8 +3,10 @@ var bcrypt = require("bcrypt-nodejs")
 
 var userSchema = new mongoose.Schema({
   email: {type:String,required:true},
-  password:{type:String,required:true}
-})
+  password:{type:String,required:true},
+  username : String,
+  googleId : String
+});
 userSchema.methods.encryptPassword = function(password){
   return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null)
 }

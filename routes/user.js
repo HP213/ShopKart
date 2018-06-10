@@ -12,21 +12,11 @@ var stripe = require('stripe')
 router.use(csrfProtection);
 router.get('/profile',isLoggedIn,function(req,res){
   Order.find({user:req.user},function(err,orders){
-    if(!err){
-
-    var cartArray = []
-    orders.forEach(function(order){
-
-      var cart = new Cart(order.cart)
-      cartArray.push(cart.genArray())
-
-    })
-  
-
-    res.render("user/profile",{items:cartArray})
-  }
-  })
-})
+    if(!err) {
+        res.render("user/profile",{orders:orders});
+    }
+  });
+});
 router.get('/logout',isLoggedIn,function(req,res){
   req.logout()
   res.redirect('/')
@@ -113,6 +103,13 @@ function isLoggedIn(req,res,next){
   req.flash('error',"You Need To Sign In")
   res.redirect('/user/signin')
 }
+
+router.get('/google', passport.authenticate('google',{
+    scope : ['profile']
+}));
+router.get('/google/redirect',passport.authenticate('google'), (req, res)=>{
+    res.redirect('/user/profile');
+});
 
 
 

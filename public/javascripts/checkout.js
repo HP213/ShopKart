@@ -1,25 +1,24 @@
-Stripe.PublishableKey('#');
 
-var $form = $('#checkout-form');
+var body = document.getElementsByTagName('body')[0];
+var removeLoading = function() {
+    setTimeout(function() {
+        body.className = body.className.replace(/loading/, '');
+    }, 3000);
+};
+removeLoading();
 
-$form.submit(function(event){
-  $form.find('button').prop('disabled',true)
-  //
-  // stripe.createToken('bank_account', {
-  //   country: 'IN',
-  //   currency: 'rs',
-  //   routing_number: '110000000',
-  //   account_number: '000123456789',
-  //   account_holder_name: 'Jenny Rosen',
-  //   account_holder_type: 'individual',
-  // }).then(function(result) {
-  //   retrun false
-  // })
-})
+var up = $('.cart_quantity_up');
+var down = $('.cart_quantity_down');
+var quant = $('#quant');
 
-
-function stripeResponseHeader(status,response){
-  if(response.error){
-
-  }
-}
+up.click(function () {
+    var value = parseInt(quant.val()) + 1;
+    console.log(value);
+    quant.value = value;
+    return true;
+});
+down.click(function () {
+    var value = parseInt(quant.val()) - 1;
+    quant.value = value;
+    return true;
+});

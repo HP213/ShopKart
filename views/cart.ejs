@@ -1,86 +1,168 @@
-<% include ./partials/header%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Home | E-Shopper</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/prettyPhoto.css" rel="stylesheet">
+	<link href="css/price-range.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="shortcut icon" href="images/ico/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head><!--/head-->
+<body class="loading">
+<div id="preloader"></div>
+<header id="header"><!--header-->
+	<div class="header-middle"><!--header-middle-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="logo pull-left">
+						<a href="/"><img src="images/home/logo.png" alt="" /></a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="shop-menu pull-right">
+						<ul class="nav navbar-nav">
+							<li><a href="/user/profile"><i class="fa fa-user"></i> Account</a></li>
 
-<div class="container">
-  <%if(products === null){%>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="error-temp">
-                <h1>
-                    Oops!</h1>
-                <h2>
-                    Cart Is Empty</h2>
+							<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart<%if(session.cart){%>
+									<span class="badge"><%=session.cart.totalQty%></span>
+									<%}%></a></li>
+							<%if(!login){%>
+							<li><a href="/user/signin"><i class="fa fa-lock"></i> Login</a></li>
+							<%} else {%>
+							<li><a href="/user/logout"><i class="fa fa-lock"></i> logout</a></li>
+							<%}%>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header><!--/header-->
 
-                <div class="error-actions">
-                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Take Me Home </a>
-                </div>
-            </div>
-        </div>
-    </div>
-  <%}else{%>
+<section id="cart_items">
+	<div class="container">
+		<div class="container">
+			<%if(products === null){%>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="error-temp">
+						<h1>
+							Oops!</h1>
+						<h2>
+							Cart Is Empty</h2>
+						<div class="error-actions">
+							<a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+								Take Me Home </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%}else{%>
+		</div>
+		<%if(success){%>
+		<%if(success.length > 0){%>
+		<div class="alert alert-success"><%=success%></div>
+		<%}%>
+		<%}%>
+		<%if(error){%>
+		<%if(error.length > 0){%>
+		<div class="alert alert-error"><%=error%></div>
+		<%}%>
+		<%}%>
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<thead>
+				<tr class="cart_menu">
+					<td class="image">Item</td>
+					<td class="description"></td>
+					<td class="price">Price</td>
+					<td class="quantity">Quantity</td>
+					<td class="total">Total</td>
+					<td></td>
+				</tr>
+				</thead>
+				<%for(product of products){%>
+				<tbody>
+
+				<tr>
+					<td class="cart_product">
+						<img style="width: 70px;" src="<%=product.image%>" alt="..." class="img-responsive"/>
+					</td>
+					<td class="cart_description">
+						<h4><a href=""><%=product.item.title%></a></h4>
+					</td>
+					<td class="cart_price">
+						<p>Rs <%=product.price%></p>
+					</td>
+					<td class="cart_quantity">
+						<div class="cart_quantity_button">
+							<form action="/change/<%=product.item._id%>" method="get">
+							<a type="submit" class="cart_quantity_up" > + </a>
+
+							<input id="quant" class="cart_quantity_input" type="text" name="quantity" value="<%=product.qty%>" autocomplete="off" size="2">
+							<a type="submit" class="cart_quantity_down" > - </a>
+							</form>
+						</div>
+					</td>
+					<td class="cart_total">
+						<p class="cart_total_price">Rs <%=totalPrice%></p>
+					</td>
+					<td class="cart_delete">
+						<a class="cart_quantity_delete" href="/delete/<%=product.item._id%>"><i class="fa fa-times"></i></a>
+					</td>
+				</tr>
+				</tbody>
+				<%}%>
+				<tfoot>
+				<tr class="visible-xs">
+					<td class="text-center"><strong>Total Rs<%=totalPrice%></strong></td>
+				</tr>
+				<tr>
+					<td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+					<td colspan="2" class="hidden-xs"></td>
+					<td class="hidden-xs text-center"><strong>Total Rs  <%=totalPrice%></strong></td>
+					<td><a href="/user/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+		<%}%>
+	</div>
+</section>
+
+<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<p class="pull-left">Copyright © 2018 E-SHOPPER Inc. All rights reserved.</p>
+			<p class="pull-right">Designed by <span>The Codoholics</span></p>
+		</div>
+	</div>
 </div>
-<div class="container">
-  <%if(mess){%>
-  <div class="alert alert-danger">
-    <%=mess%>
-  </div>
-  <%}%>
-  <%if(success){%>
-  <div class="alert alert-success">
-    <%=success%>
-  </div>
-  <%}%>
-  <table id="cart" class="table table-hover table-condensed">
-    				<thead>
-						<tr>
-							<th style="width:50%">Product</th>
-							<th style="width:10%">Price</th>
-							<th style="width:8%">Quantity</th>
-							<th style="width:22%" class="text-center">Subtotal</th>
-							<th style="width:10%"></th>
-						</tr>
-					</thead>
-          <%for(product of products){%>
-					<tbody>
-						<tr>
-							<td data-th="Product">
-								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="<%=product.image%>" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin"><%=product.item.title%></h4>
-										<p><%product.item.content.substr(10)%></p>
-									</div>
-								</div>
-							</td>
-							<td data-th="Price">Rs <%=product.item.discountedPrice%></td>
-							<td data-th="Quantity">
-                <form action="/change/<%=product.item._id%>" method="get">
-								<input name="change" type="number" class="form-control text-center" value="<%=product.qty%>">
 
-							</td>
-							<td data-th="Subtotal" class="text-center"><%=product.price%></td>
-							<td class="actions" data-th="">
-								<button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button></form>
-								<a href="/delete/<%=product.item._id%>" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-							</td>
-						</tr>
-					</tbody>
-          <%}%>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total Rs<%=totalPrice%></strong></td>
-						</tr>
-						<tr>
-							<td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total Rs  <%=totalPrice%></strong></td>
-							<td><a href="/user/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-						</tr>
-					</tfoot>
-				</table>
-</div>
-<%}%>
-
-
-
-<% include ./partials/footer %>
+</footer><!--/Footer-->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="/javascripts/checkout.js"></script>
+</body>
+</html>
