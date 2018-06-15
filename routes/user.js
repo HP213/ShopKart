@@ -13,7 +13,22 @@ router.use(csrfProtection);
 router.get('/profile',isLoggedIn,function(req,res){
   Order.find({user:req.user},function(err,orders){
     if(!err) {
-        res.render("user/profile",{orders:orders});
+      var totalorders = {};
+      var totalcreatedat = [];
+      totalorders.createdAt = orders.createdAt;
+      var cartArray = []
+      orders.forEach(function(order){
+        totalcreatedat.push(order.createdAt);
+        var cart = new Cart(order.cart)
+        cartArray.push(cart.genArray())
+
+      })
+      totalorders.cart = cartArray;
+      totalorders.createdAt = totalcreatedat
+
+        res.render("user/profile",{items:cartArray});
+        console.log(totalorders);
+
     }
   });
 });

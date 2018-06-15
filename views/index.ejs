@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,17 +13,13 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <link rel="stylesheet" href="/stylesheets/style.css">
-</head><!--/head-->
+</head>
 <body class="loading">
 <div id="preloader"></div>
 <%if(success){%>
@@ -36,8 +32,8 @@
 <div class="alert alert-error"><%=error%></div>
 <%}%>
 <%}%>
-	<header id="header"><!--header-->
-		<div class="header-middle"><!--header-middle-->
+	<header id="header">
+		<div class="header-middle">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
@@ -64,17 +60,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="header-bottom"><!--header-bottom-->
+		<div class="header-bottom">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3">
 					</div>
 				</div>
 			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+		</div>
+	</header>
 
-	<section id="slider"><!--slider-->
+	<section id="slider">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -107,13 +103,13 @@
 				</div>
 			</div>
 		</div>
-	</section><!--/slider-->
+	</section>
 
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 padding-right">
-					<div class="features_items"><!--features_items-->
+					<div class="features_items">
 						<h2 class="title text-center">Featured Products</h2>
 						<div id="tableloader">
 						<%for(product of products){%>
@@ -147,9 +143,9 @@
 						<br>
 						<a id="showmore" style="color: whitesmoke" class="btn btn-block btn-primary">Show More</a>
 						<br>
-					</div><!--features_items-->
+					</div>
 
-					<div class="recommended_items"><!--recommended_items-->
+					<div class="recommended_items">
 						<h2 class="title text-center">Inspired By Your Search</h2>
 						<%if(recommended){%>
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -180,7 +176,7 @@
 								</div>
 							</div>
 						</div>
-					</div><!--/recommended_items-->
+					</div>
 					<%}%>
 
 				</div>
@@ -196,7 +192,7 @@
 			</div>
 		</div>
 
-	</footer><!--/Footer-->
+	</footer>
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
@@ -206,4 +202,765 @@
     <script src="js/main.js"></script>
 <script src="/javascripts/checkout.js"></script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ShopKart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="plugins/slick-1.8.0/slick.css">
+<link rel="stylesheet" type="text/css" href="css/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="css/styles/responsive.css">
+
+</head>
+
+<body>
+  <div id="preloader"></div>
+  <%if(success){%>
+  <%if(success.length > 0){%>
+  <div class="alert alert-success"><%=success%></div>
+  <%}%>
+  <%}%>
+  <%if(error){%>
+  <%if(error.length > 0){%>
+  <div class="alert alert-error"><%=error%></div>
+  <%}%>
+  <%}%>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+  <header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+
+						<div class="top_bar_content ml-auto">
+							<div class="top_bar_menu">
+
+							</div>
+							<div class="top_bar_user">
+								<div class="user_icon"><img src="../images/images/user.svg" alt=""></div>
+                <%if(!login){%>
+                  <div><a href="/user/signup">Sign Up</a></div>
+                  <div><a href="/user/signin">Log In</a></div>
+                  <%} else {%>
+                    <div><a href="/user/logout">Log Out</a></div>
+                    <div><a href="/user/profile">Profile</a></div>
+                    <%}%>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Main -->
+
+		<div class="header_main">
+			<div class="container">
+				<div class="row">
+
+					<!-- Logo -->
+					<div class="col-lg-2 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="#">Shopkart</a></div>
+						</div>
+					</div>
+
+					<!-- Search -->
+					 <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+						<div class="header_search">
+							<div class="header_search_content">
+								<div class="header_search_form_container">
+									<form action="#" class="header_search_form clearfix">
+										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+										<div class="custom_dropdown">
+											<div class="custom_dropdown_list">
+												<span class="custom_dropdown_placeholder clc">All Categories</span>
+												<i class="fas fa-chevron-down"></i>
+												<ul class="custom_list clc">
+													<li><a class="clc" href="#">All Categories</a></li>
+													<li><a class="clc" href="#">Computers</a></li>
+													<li><a class="clc" href="#">Laptops</a></li>
+													<li><a class="clc" href="#">Cameras</a></li>
+													<li><a class="clc" href="#">Hardware</a></li>
+													<li><a class="clc" href="#">Smartphones</a></li>
+												</ul>
+											</div>
+										</div>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/images/search.png" alt=""></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Wishlist -->
+					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+
+
+							<!-- Cart -->
+              <div class="cart">
+		            <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+		              <div class="cart_icon">
+		                <img src="../images/images/cart.png" alt="">
+		                <%if(session.cart){%>
+		                <div class="cart_count">
+		              <span class="badge"><%=session.cart.totalQty%></span>
+		            <%}%></div>
+		              </div>
+		              <div class="cart_content">
+		                <div class="cart_text"><a href="/cart">Cart</a></div>
+		                <!-- <div class="cart_price">$85</div> -->
+		              </div>
+		            </div>
+		          </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+
+						<div class="main_nav_content d-flex flex-row">
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Menu -->
+
+
+	</header>
+
+	<!-- Banner -->
+
+	<div class="banner">
+		<div class="banner_background" style="background-image:url(images/images/banner_background.jpg)"></div>
+		<div class="container fill_height">
+			<div class="row fill_height">
+				<div class="banner_product_image"><img src="images/images/banner_product.png" alt=""></div>
+				<div class="col-lg-5 offset-lg-4 fill_height">
+					<div class="banner_content">
+						<h1 class="banner_text">new era of smartphones</h1>
+						<div class="banner_price"><span>Rs. 28,000</span>Rs. 26,000</div>
+						<div class="banner_product_name">Apple Iphone 6s</div>
+						<!-- <div class="button banner_button"><a href="#">Shop Now</a></div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Characteristics -->
+
+	<div class="characteristics">
+		<div class="container">
+			<div class="row">
+
+				<!-- Char. Item -->
+				<div class="col-lg-3 col-md-6 char_col">
+
+					<div class="char_item d-flex flex-row align-items-center justify-content-start">
+						<div class="char_icon"><img src="images/images/char_1.png" alt=""></div>
+						<div class="char_content">
+							<div class="char_title">Free Delivery</div>
+							<div class="char_subtitle">Delivery on Time<</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Char. Item -->
+				<div class="col-lg-3 col-md-6 char_col">
+
+					<div class="char_item d-flex flex-row align-items-center justify-content-start">
+						<div class="char_icon"><img src="images/images/char_2.png" alt=""></div>
+						<div class="char_content">
+							<div class="char_title">Easy Exchange</div>
+							<div class="char_subtitle">Without Any Question*</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Char. Item -->
+				<div class="col-lg-3 col-md-6 char_col">
+
+					<div class="char_item d-flex flex-row align-items-center justify-content-start">
+						<div class="char_icon"><img src="images/images/char_3.png" alt=""></div>
+						<div class="char_content">
+							<div class="char_title">COD</div>
+							<div class="char_subtitle">Also Available</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Char. Item -->
+				<div class="col-lg-3 col-md-6 char_col">
+
+					<div class="char_item d-flex flex-row align-items-center justify-content-start">
+						<div class="char_icon"><img src="images/images/char_4.png" alt=""></div>
+						<div class="char_content">
+							<div class="char_title">ShopKart Assured</div>
+							<div class="char_subtitle">Correct Product</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Deals of the week -->
+
+	<div class="deals_featured">
+		<div class="container">
+			<div class="row">
+				<div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
+
+					<!-- Deals -->
+
+					<div class="deals">
+						<div class="deals_title">Deals of the Week</div>
+						<div class="deals_slider_container">
+
+							<!-- Deals Slider -->
+							<div class="owl-carousel owl-theme deals_slider">
+
+								<!-- Deals Item -->
+								<div class="owl-item deals_item">
+									<div class="deals_image"><img src="images/images/deals.png" alt=""></div>
+									<div class="deals_content">
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_category"><a href="#">Headphones</a></div>
+											<div class="deals_item_price_a ml-auto line1">Rs. 3000</div>
+										</div>
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_name">Beoplay H7</div>
+											<div class="deals_item_price ml-auto">Rs. 2250</div>
+										</div>
+										<div class="available">
+											<div class="available_line d-flex flex-row justify-content-start">
+												<div class="available_title">Available: <span>6</span></div>
+												<div class="sold_title ml-auto">Already sold: <span>28</span></div>
+											</div>
+											<div class="available_bar"><span style="width:17%"></span></div>
+										</div>
+										<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
+											<div class="deals_timer_title_container">
+												<div class="deals_timer_title">Hurry Up</div>
+												<div class="deals_timer_subtitle">Offer ends in:</div>
+											</div>
+											<div class="deals_timer_content ml-auto">
+												<div class="deals_timer_box clearfix" data-target-time="">
+													<div class="deals_timer_unit">
+														<div id="deals_timer1_hr" class="deals_timer_hr"></div>
+														<span>hours</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer1_min" class="deals_timer_min"></div>
+														<span>mins</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer1_sec" class="deals_timer_sec"></div>
+														<span>secs</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Deals Item -->
+								<div class="owl-item deals_item">
+									<div class="deals_image"><img src="images/images/deals.png" alt=""></div>
+									<div class="deals_content">
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_category"><a href="#">Headphones</a></div>
+											<div class="deals_item_price_a ml-auto">Rs. 3000</div>
+										</div>
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_name">Beoplay H7</div>
+											<div class="deals_item_price ml-auto">Rs. 2250</div>
+										</div>
+										<div class="available">
+											<div class="available_line d-flex flex-row justify-content-start">
+												<div class="available_title">Available: <span>6</span></div>
+												<div class="sold_title ml-auto">Already sold: <span>28</span></div>
+											</div>
+											<div class="available_bar"><span style="width:17%"></span></div>
+										</div>
+										<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
+											<div class="deals_timer_title_container">
+												<div class="deals_timer_title">Hurry Up</div>
+												<div class="deals_timer_subtitle">Offer ends in:</div>
+											</div>
+											<div class="deals_timer_content ml-auto">
+												<div class="deals_timer_box clearfix" data-target-time="">
+													<div class="deals_timer_unit">
+														<div id="deals_timer2_hr" class="deals_timer_hr"></div>
+														<span>hours</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer2_min" class="deals_timer_min"></div>
+														<span>mins</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer2_sec" class="deals_timer_sec"></div>
+														<span>secs</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Deals Item -->
+								<div class="owl-item deals_item">
+									<div class="deals_image"><img src="images/images/deals.png" alt=""></div>
+									<div class="deals_content">
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_category"><a href="#">Headphones</a></div>
+											<div class="deals_item_price_a ml-auto">Rs. 3000</div>
+										</div>
+										<div class="deals_info_line d-flex flex-row justify-content-start">
+											<div class="deals_item_name">Beoplay H7</div>
+											<div class="deals_item_price ml-auto">Rs. 2250</div>
+										</div>
+										<div class="available">
+											<div class="available_line d-flex flex-row justify-content-start">
+												<div class="available_title">Available: <span>6</span></div>
+												<div class="sold_title ml-auto">Already sold: <span>28</span></div>
+											</div>
+											<div class="available_bar"><span style="width:17%"></span></div>
+										</div>
+										<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
+											<div class="deals_timer_title_container">
+												<div class="deals_timer_title">Hurry Up</div>
+												<div class="deals_timer_subtitle">Offer ends in:</div>
+											</div>
+											<div class="deals_timer_content ml-auto">
+												<div class="deals_timer_box clearfix" data-target-time="">
+													<div class="deals_timer_unit">
+														<div id="deals_timer3_hr" class="deals_timer_hr"></div>
+														<span>hours</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer3_min" class="deals_timer_min"></div>
+														<span>mins</span>
+													</div>
+													<div class="deals_timer_unit">
+														<div id="deals_timer3_sec" class="deals_timer_sec"></div>
+														<span>secs</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="deals_slider_nav_container">
+							<div class="deals_slider_prev deals_slider_nav"><i class="fas fa-chevron-left ml-auto"></i></div>
+							<div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
+						</div>
+					</div>
+
+					<!-- Featured -->
+					<div class="featured">
+						<div class="tabbed_container">
+							<div class="tabs">
+								<ul class="clearfix">
+									<li class="active">Featured</li>
+
+								</ul>
+								<div class="tabs_line"><span></span></div>
+							</div>
+
+							<!-- Product Panel -->
+							<div class="product_panel panel active">
+								<div class="featured_slider slider">
+                  <%for(product of products){%>
+
+									<!-- Slider Item -->
+									<div class="featured_slider_item">
+										<div class="border_active"></div>
+										<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+											<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="<%=product.image%>" alt=""></div>
+											<div class="product_content">
+												<div class="product_price discount">Rs <%=product.discountedPrice%><span class= 'line1'></span></div>
+												<div class="product_name"><div><a href="/more-info/<%=product._id%>"><%=product.title%></a></div></div>
+												<div class="product_extras">
+													<div class="product_color">
+														<input type="radio" checked name="product_color" style="background:#b19c83">
+														<!-- <input type="radio" name="product_color" style="background:#000000">
+														<input type="radio" name="product_color" style="background:#999999"> -->
+													</div>
+                          <%if(product.available === true){%>
+                          <a href="/add-to-cart/<%=product._id%>" class=" btn product_cart_button">Add to Cart</a>
+                          <%}else {%>
+                          <a href="#" class=" btn product_cart_button">Out of Stock</a>
+                          <%}%>
+												</div>
+											</div>
+											<div class="product_fav"><i class="fas fa-heart"></i></div>
+											<ul class="product_marks">
+												<!-- <li class="product_mark product_discount">-25%</li> -->
+												<li class="product_mark product_new">new</li>
+											</ul>
+										</div>
+									</div>
+                  <%}%>
+
+
+
+
+								</div>
+								<div class="featured_slider_dots_cover"></div>
+							</div>
+
+							<!-- Product Panel -->
+
+													</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Banner -->
+
+	<div class="banner_2">
+		<div class="banner_2_background" style="background-image:url(images/images/banner_2_background.jpg)"></div>
+		<div class="banner_2_container">
+			<div class="banner_2_dots"></div>
+			<!-- Banner 2 Slider -->
+
+			<div class="owl-carousel owl-theme banner_2_slider">
+
+				<!-- Banner 2 Slider Item -->
+				<div class="owl-item">
+					<div class="banner_2_item">
+						<div class="container fill_height">
+							<div class="row fill_height">
+								<div class="col-lg-4 col-md-6 fill_height">
+									<div class="banner_2_content">
+										<div class="banner_2_category">Laptops</div>
+										<div class="banner_2_title">MacBook Air 13</div>
+										<!-- <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div> -->
+										<!-- <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div> -->
+										<div class="button banner_2_button"><a href="#">Explore</a></div>
+									</div>
+
+								</div>
+								<div class="col-lg-8 col-md-6 fill_height">
+									<div class="banner_2_image_container">
+										<div class="banner_2_image"><img src="images/images/banner_2_product.png" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Banner 2 Slider Item -->
+				<div class="owl-item">
+					<div class="banner_2_item">
+						<div class="container fill_height">
+							<div class="row fill_height">
+								<div class="col-lg-4 col-md-6 fill_height">
+									<div class="banner_2_content">
+										<div class="banner_2_category">Laptops</div>
+										<div class="banner_2_title">MacBook Air 13</div>
+										<!-- <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div> -->
+										<!-- <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div> -->
+										<div class="button banner_2_button"><a href="#">Explore</a></div>
+									</div>
+
+								</div>
+								<div class="col-lg-8 col-md-6 fill_height">
+									<div class="banner_2_image_container">
+										<div class="banner_2_image"><img src="images/images/banner_2_product.png" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Banner 2 Slider Item -->
+				<div class="owl-item">
+					<div class="banner_2_item">
+						<div class="container fill_height">
+							<div class="row fill_height">
+								<div class="col-lg-4 col-md-6 fill_height">
+									<div class="banner_2_content">
+										<div class="banner_2_category">Laptops</div>
+										<div class="banner_2_title">MacBook Air 13</div>
+										<!-- <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div> -->
+										<!-- <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div> -->
+										<div class="button banner_2_button"><a href="#">Explore</a></div>
+									</div>
+
+								</div>
+								<div class="col-lg-8 col-md-6 fill_height">
+									<div class="banner_2_image_container">
+										<div class="banner_2_image"><img src="images/images/banner_2_product.png" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Hot New Arrivals -->
+<%if(recommended){%>
+	<div class="new_arrivals">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="tabbed_container">
+						<div class="tabs clearfix tabs-right">
+							<div class="new_arrivals_title">Top Brands</div>
+							<ul class="clearfix">
+								<li class="active">Based on Your Search History</li>
+
+							</ul>
+							<div class="tabs_line"><span></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12" style="z-index:1;">
+
+								<!-- Product Panel -->
+								<div class="product_panel panel active">
+									<div class="arrivals_slider slider">
+
+										<!-- Slider Item -->
+                    <%for(product of recommended){%>
+										<div class="arrivals_slider_item">
+											<div class="border_active"></div>
+											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="<%=product.image%>" alt=""></div>
+												<div class="product_content">
+													<div class="product_price">Rs <%=product.discountedPrice%></div>
+													<div class="product_name"><div><a href="/more-info/<%=product._id%>"><%=product.title%></a></div></div>
+													<div class="product_extras">
+														<div class="product_color">
+															<input type="radio" checked name="product_color" style="background:#b19c83">
+															<input type="radio" name="product_color" style="background:#000000">
+															<input type="radio" name="product_color" style="background:#999999">
+														</div>
+                            <%if(product.available === true){%>
+                            <a href="/add-to-cart/<%=product._id%>" class=" btn product_cart_button">Add to Cart</a>
+                            <%}else {%>
+                            <a href="#" class=" btn product_cart_button">Out of Stock</a>
+                            <%}%>
+													</div>
+												</div>
+												<div class="product_fav"><i class="fas fa-heart"></i></div>
+												<ul class="product_marks">
+													<!-- <li class="product_mark product_discount">-25%</li>
+													<li class="product_mark product_new">new</li> -->
+												</ul>
+											</div>
+										</div>
+                    <%}%>
+
+
+
+
+
+
+
+
+
+									</div>
+									<div class="arrivals_slider_dots_cover"></div>
+								</div>
+
+
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+<%}%>
+
+
+
+
+	<!-- Reviews -->
+
+
+	<!-- Recently Viewed -->
+
+	<div class="viewed">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="viewed_title_container">
+						<h3 class="viewed_title pull-center">Top Brands</h3>
+						<div class="viewed_nav_container">
+
+						</div>
+					</div>
+
+					<div class="viewed_slider_container">
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	<!-- Brands -->
+<div class="view"></div>
+	<div class="brands">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="brands_slider_container">
+
+						<!-- Brands Slider -->
+
+						<div class="owl-carousel owl-theme brands_slider">
+
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_1.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_2.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_3.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_4.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_5.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_6.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_7.jpg" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/images/brands_8.jpg" alt=""></div></div>
+
+						</div>
+
+						<!-- Brands Slider Navigation -->
+						<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+						<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_column footer_contact">
+						<div class="logo_container">
+							<div class="logo"><a href="#">ShopKart</a></div>
+						</div>
+						<div class="footer_title">Always In Your Service</div>
+						<!-- <div class="footer_phone">+38 068 005 3570</div> -->
+						<div class="footer_contact_text">
+							<!-- <p>17 Princess Road, London</p>
+							<p>Grester London NW18JR, UK</p> -->
+						</div>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-google"></i></a></li>
+								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</footer>
+
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">Team GG</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+						<div class="logos ml-sm-auto">
+							<ul class="logos_list">
+								<li><a href="#"><img src="images/images/logos_1.png" alt=""></a></li>
+								<li><a href="#"><img src="images/images/logos_2.png" alt=""></a></li>
+								<li><a href="#"><img src="images/images/logos_3.png" alt=""></a></li>
+								<li><a href="#"><img src="images/images/logos_4.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/java/jquery-3.3.1.min.js"></script>
+<script src="css/styles/bootstrap4/popper.js"></script>
+<script src="css/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/slick-1.8.0/slick.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/java/custom.js"></script>
+</body>
+
 </html>

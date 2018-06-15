@@ -31,7 +31,7 @@ router.get('/cart',function(req,res){
   res.render('cart',{products:allProducts,totalPrice:cart.totalPrice,totalQty:cart.totalQty,mess:error,success:success})
 });
 router.get('/', function(req, res) {
-  var lim = 3;
+  // var lim = 3;
   if (req.query.data){
       var lim = req.query.data;
       console.log(req.query.data);
@@ -53,12 +53,12 @@ router.get('/', function(req, res) {
                   createdAt:-1
               }
           },
-          {
-              $skip: lim-3
-          },
-          {
-              $limit:3
-          }
+          // {
+          //     $skip: lim-3
+          // },
+          // {
+          //     $limit:3
+          // }
 
       ]).exec((err,products)=>{
           if(err){
@@ -96,9 +96,9 @@ router.get('/', function(req, res) {
                   createdAt:-1
               }
           },
-          {
-              $limit:3
-          }
+          // {
+          //     $limit:3
+          // }
       ]).exec((err,products)=>{
           if(err){
               console.log("no product");
@@ -128,9 +128,9 @@ router.get('/', function(req, res) {
                               createdAt:-1
                           }
                       },
-                      {
-                          $limit:3
-                      }
+                      // {
+                      //     $limit:3
+                      // }
                   ]).exec((err,recommended)=>{
                       if (!err){
                           recommended.forEach((product)=>{

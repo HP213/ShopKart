@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,21 +13,17 @@
   <link href="/css/animate.css" rel="stylesheet">
   <link href="/css/main.css" rel="stylesheet">
   <link href="/css/responsive.css" rel="stylesheet">
-  <!--[if lt IE 9]>
-  <script src="/js/html5shiv.js"></script>
-  <script src="/js/respond.min.js"></script>
-  <![endif]-->
   <link rel="shortcut icon" href="/images/ico/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
   <link rel="stylesheet" href="/stylesheets/style.css">
-</head><!--/head-->
+</head>
 
 <body>
-<header id="header"><!--header-->
-  <div class="header-middle"><!--header-middle-->
+<header id="header">
+  <div class="header-middle">
     <div class="container">
       <div class="row">
         <div class="col-sm-4">
@@ -57,11 +53,11 @@
 
   <section>
     <div class="col-sm-9 padding-right">
-      <div class="product-details"><!--product-details-->
+      <div class="product-details">
         <div class="col-sm-12">
-            <!-- Wrapper for slides -->
+
         <div class="col-sm-12">
-          <div class="product-information"><!--/product-information-->
+          <div class="product-information">
             <img style="width: 400px" src="<%=product.image%>" class="newarrival" alt="" />
             <h2><%=product.title%></h2>
             <span>
@@ -79,9 +75,9 @@
             <p><b>Availability:</b>Out In Stock</p>
             <%}%>
 
-          </div><!--/product-information-->
+          </div>
         </div>
-      </div><!--/product-details-->
+      </div>
   </section>
   <div class="footer-bottom">
     <div class="container">
@@ -91,7 +87,7 @@
       </div>
     </div>
   </div>
-  </footer><!--/Footer-->
+  </footer>
 
 
 
@@ -103,3 +99,355 @@
   <script src="/js/main.js"></script>
 </body>
 </html>
+
+ -->
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <title>ShopKart-<%-product.title%></title>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="description" content="OneTech shop project">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="../css/styles/bootstrap4/bootstrap.min.css">
+ <link href="../plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+ <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+ <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
+ <link rel="stylesheet" type="text/css" href="../css/styles/product_styles.css">
+ <link rel="stylesheet" type="text/css" href="../css/styles/product_responsive.css">
+
+ </head>
+
+ <body>
+
+ <div class="super_container">
+
+ 	<!-- Header -->
+
+  <header class="header">
+
+    <!-- Top Bar -->
+
+    <div class="top_bar">
+      <div class="container">
+        <div class="row">
+          <div class="col d-flex flex-row">
+            <div class="top_bar_contact_item"><div class="top_bar_icon"></div>ShopKart</div>
+            <div class="top_bar_content ml-auto">
+              <div class="top_bar_menu">
+                <ul class="standard_dropdown top_bar_dropdown">
+
+
+                </ul>
+              </div>
+              <div class="top_bar_user">
+                <div class="user_icon"><img src="../images/images/user.svg" alt=""></div>
+
+                <%if(!login){%>
+                  <div><a href="/user/signup">Sign Up</a></div>
+                  <div><a href="/user/signin">Log In</a></div>
+                  <%} else {%>
+
+                    <div><a href="/user/logout">Log Out</a></div>
+                    <div><a href="/user/profile">Profile</a></div>
+                    <%}%>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Main -->
+
+    <div class="header_main">
+      <div class="container">
+        <div class="row">
+
+          <!-- Logo -->
+          <div class="col-lg-2 col-sm-3 col-3 order-1">
+            <div class="logo_container">
+              <div class="logo"><a href="/">ShopKart</a></div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+            <div class="header_search">
+              <div class="header_search_content">
+                <div class="header_search_form_container">
+                  <form action="#" class="header_search_form clearfix">
+                    <input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+                    <div class="custom_dropdown">
+                      <div class="custom_dropdown_list">
+                        <span class="custom_dropdown_placeholder ">All Categories</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <ul class="custom_list clc">
+
+                        </ul>
+                      </div>
+                    </div>
+                    <button type="submit" class="header_search_button trans_300" value="Submit"><img src="../images/images/search.png" alt=""></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wishlist -->
+          <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+            <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+              <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+
+              </div>
+
+              <!-- Cart -->
+              <!-- <div class="cart">
+                <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                  <div class="cart_icon">
+                    <img src="images/images/cart.png" alt="">
+                     <%if(session.cart){%>
+                    <div class="cart_count"><span class="badge"><%=session.cart.totalQty%></span></div>
+                  <%}%></div>
+                  <div class="cart_content">
+                    <div class="cart_text"><a href="#">Cart</a></div>
+                    <div class="cart_price">$85</div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="cart">
+                <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                  <div class="cart_icon">
+                    <img src="../images/images/cart.png" alt="">
+                    <%if(session.cart){%>
+                    <div class="cart_count">
+                  <span class="badge"><%=session.cart.totalQty%></span>
+                <%}%></div>
+                  </div>
+                  <div class="cart_content">
+                    <div class="cart_text"><a href="/cart">Cart</a></div>
+                    <!-- <div class="cart_price">$85</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+
+    <nav class="main_nav">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+
+            <div class="main_nav_content d-flex flex-row">
+
+
+              <!-- Menu Trigger -->
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Menu -->
+
+    <div class="page_menu">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+
+
+
+  </header>
+
+
+ 	<!-- Single Product -->
+
+ 	<div class="single_product">
+ 		<div class="container">
+ 			<div class="row">
+
+ 				<!-- Images -->
+
+
+ 				<!-- Selected Image -->
+ 				<div class="col-lg-5 order-lg-2 order-1">
+ 					<div class="image_selected"><img src="<%=product.image%>" alt=""></div>
+ 				</div>
+
+ 				<!-- Description -->
+ 				<div class="col-lg-5 order-3">
+ 					<div class="product_description">
+ 						<div class="product_category"><%-product.category%></div>
+ 						<div class="product_name"><%-product.title%></div>
+ 						<!-- <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div> -->
+ 						<div class="product_text"><p><%-product.content.substring(0, 500)%>...</p></div>
+ 						<div class="order_info d-flex flex-row">
+              <%if(product.available){%>
+              <form action="\add-to-cart\<%=product._id%>">
+ 								<div class="clearfix" style="z-index: 1000;">
+
+ 									<!-- Product Quantity -->
+ 									<!-- <div class="product_quantity clearfix">
+ 										<span>Quantity: </span>
+ 										<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+ 										<div class="quantity_buttons">
+ 											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
+ 											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
+ 										</div>
+ 									</div> -->
+
+ 									<!-- Product Color -->
+
+ 								</div>
+
+ 								<div class="product_price">Rs <%=product.discountedPrice%></div>
+ 								<div class="button_container">
+                  <a class="button cart_button" href="/add-to-cart/<%=product._id%>"><i class="fa fa-shopping-cart"></i>Add to Carts</a>
+ 									
+
+ 								</div>
+                <%if(product.available){%>
+              <p><b>Availability:</b> In Stock</p>
+              <%}else{%>
+              <p><b>Availability:</b>Out In Stock</p>
+              <%}%>
+
+ 							</form>
+              <%}%>
+ 						</div>
+ 					</div>
+ 				</div>
+
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<!-- Recently Viewed -->
+
+
+
+ 					<div class="viewed_slider_container">
+
+ 						<!-- Recently Viewed Slider -->
+
+
+ 	<!-- Brands -->
+
+ 	<div class="brands">
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col">
+ 					<div class="brands_slider_container">
+
+ 						<!-- Brands Slider -->
+
+ 						<div class="owl-carousel owl-theme brands_slider">
+
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_1.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_2.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_3.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_4.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_5.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_6.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_7.jpg" alt=""></div></div>
+ 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="images/brands_8.jpg" alt=""></div></div>
+
+ 						</div>
+
+ 						<!-- Brands Slider Navigation -->
+ 						<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+ 						<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<!-- Newsletter -->
+
+
+ 	<!-- Footer -->
+
+ 	<footer class="footer">
+ 		<div class="container">
+ 			<div class="row">
+
+ 				<div class="col-lg-3 footer_col">
+ 					<div class="footer_column footer_contact">
+ 						<div class="logo_container">
+ 							<div class="logo"><a href="#">Shopkart</a></div>
+ 						</div>
+ 						<div class="footer_title">Always in your service..</div>
+
+ 						<div class="footer_social">
+ 							<ul>
+ 								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+ 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+ 								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+ 								<li><a href="#"><i class="fab fa-google"></i></a></li>
+ 								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+ 							</ul>
+ 						</div>
+ 					</div>
+ 				</div>
+
+
+ 			</div>
+ 		</div>
+ 	</footer>
+
+ 	<!-- Copyright -->
+
+ 	<div class="copyright">
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col">
+
+ 					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+ 						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Codoholics</a>
+ <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+ </div>
+ 						<div class="logos ml-sm-auto">
+ 							<ul class="logos_list">
+ 								<li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
+ 								<li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
+ 								<li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
+ 								<li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+ 							</ul>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+
+ <script src="../js/java/jquery-3.3.1.min.js"></script>
+ <script src="../css/styles/bootstrap4/popper.js"></script>
+ <script src="../css/styles/bootstrap4/bootstrap.min.js"></script>
+ <script src="../plugins/greensock/TweenMax.min.js"></script>
+ <script src="../plugins/greensock/TimelineMax.min.js"></script>
+ <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
+ <script src="../plugins/greensock/animation.gsap.min.js"></script>
+ <script src="../plugins/greensock/ScrollToPlugin.min.js"></script>
+ <script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+ <script src="../plugins/easing/easing.js"></script>
+ <script src="../js/java/product_custom.js"></script>
+ </body>
+
+ </html>
